@@ -33,22 +33,22 @@ var createNewTaskElement=function(taskString){
     var deleteButton=document.createElement("button");//delete button
     var deleteButtonImg=document.createElement("img");//delete button image
 
-    label.innerText=taskString;
+    label.innerText = taskString;
     //label.className='task';
-    label.className= 'todo-pending__name';
+    label.className = 'todo-pending__name';
     //Each elements, needs appending
-    checkBox.type ="checkbox";
-    editInput.type ="text";
+    checkBox.type = "checkbox";
+    editInput.type = "text";
     //editInput.className="task";
     editInput.className ='todo-pending__task';
 
-    editButton.innerText="Edit"; //innerText encodes special characters, HTML does not.
+    editButton.innerText ="Edit"; //innerText encodes special characters, HTML does not.
     //editButton.className="edit";
-    editButton.className='todo-pending__button';
+    editButton.className ='todo-pending__button';
     
     
     //deleteButton.className="delete";
-    deleteButton.className= 'todo-pending__button-delete';
+    deleteButton.className = 'todo-pending__button-delete';
     deleteButtonImg.src='./remove.svg';
     deleteButton.appendChild(deleteButtonImg);
 
@@ -88,8 +88,8 @@ var editTask=function(){
     var listItem=this.parentNode;
 
     var editInput=listItem.querySelector('input[type=text]');
-    var label=listItem.querySelector("label");
-    var editBtn=listItem.querySelector(".edit");
+    var label=listItem.querySelector(".todo-pending__name");
+    var editBtn=listItem.querySelector(".todo-pending__button");
     var containsClass=listItem.classList.contains("editmode");
     //If class of the parent is .editmode
     if(containsClass){
@@ -162,7 +162,7 @@ var bindTaskEvents=function(taskListItem,checkBoxEventHandler){
 //select ListItems children
     var checkBox=taskListItem.querySelector("input[type=checkbox]");
     //var editButton=taskListItem.querySelector("button.edit");
-    var editButton=taskListItem.querySelector(".todo-pending__button");
+    var editButton=taskListItem.querySelector("button");
     //var deleteButton=taskListItem.querySelector("button.delete");
     var deleteButton=taskListItem.querySelector(".todo-pending__button-delete");
 
@@ -194,9 +194,3 @@ for (var i=0; i<completedTasksHolder.children.length;i++){
 
 
 
-
-// Issues with usability don't get seen until they are in front of a human tester.
-
-//prevent creation of empty tasks.
-
-//Change edit to save when you are in edit mode.
