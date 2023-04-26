@@ -164,13 +164,16 @@ var bindTaskEvents=function(taskListItem,checkBoxEventHandler){
     //var editButton=taskListItem.querySelector("button.edit");
     var editButton=taskListItem.querySelector("button");
     //var deleteButton=taskListItem.querySelector("button.delete");
-    var deleteButton=taskListItem.querySelector(".todo-pending__button-delete");
+    var deleteButton=taskListItem.querySelectorAll(".todo-pending__button-delete");
 
 
     //Bind editTask to edit button.
     editButton.onclick = editTask;
     //Bind deleteTask to delete button.
-    deleteButton.onclick = deleteTask;
+    //deleteButton.onclick = deleteTask;
+    deleteButton.forEach(element => {
+        element.onclick = deleteTask;
+    });
     //Bind taskCompleted to checkBoxEventHandler.
     checkBox.onchange=checkBoxEventHandler;
 }
